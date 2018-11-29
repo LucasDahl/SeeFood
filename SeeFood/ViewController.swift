@@ -10,13 +10,21 @@ import UIKit
 import CoreML
 import Vision
 
-class ViewController: UIViewController {
-
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    // Outlets
+    @IBOutlet weak var imageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
     }
 
-
-}
+    @IBAction func cameraTapped(_ sender: UIBarButtonItem) {
+        
+        
+        
+    }
+    
+} // End class
 
