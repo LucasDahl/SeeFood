@@ -33,7 +33,18 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        <#code#>
+        
+        // Check if an image was picked and set it the a constant
+        if let userPickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            
+            // Set the imageView
+            imageView.image = userPickedImage
+            
+        }
+        
+        // Dismiss the imagepicker
+        imagePicker.dismiss(animated: true, completion: nil)
+        
     }
 
     @IBAction func cameraTapped(_ sender: UIBarButtonItem) {
