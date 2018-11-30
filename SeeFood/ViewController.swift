@@ -64,7 +64,34 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             // Get the results
             guard let results = request.results as? [VNClassificationObservation] else { fatalError("Couldn't get the results because the MOdel failed to proces images") }
             
-            print(results)
+            // Get the first result, which should be the desired object
+            if let firstResult = results.first {
+                
+                // Check if the first result is the desired object
+                if firstResult.identifier.contains("pizza") {
+                    
+                    // Was the desired item
+                    
+                    // Set the navigationItem title to the desired item
+                    self.navigationItem.title = "PIZZA!!!!"
+                    
+                    
+                    // Change the navigationBar tint color to red so the user clearly knows that the item is the desired item
+                    self.navigationController?.navigationBar.barTintColor = .green
+                    
+                } else {
+                    
+                    // Was not the desired object
+                    
+                    // Set the navigationItem title to "Not desired item!"
+                    self.navigationItem.title = "NOT PIZZA!!!"
+                    
+                    // Change the mavigationBar tint color to red so the user knows clearly it is not the desired color.
+                    self.navigationController?.navigationBar.barTintColor = .red
+                    
+                }
+                
+            }
             
         }
         
