@@ -19,15 +19,41 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RAI-oc-7Ta">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="573"/>
                             </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yzo-IX-wzG">
+                                <rect key="frame" x="0.0" y="637" width="290" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="290" id="HGK-W5-3tO"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EJO-Gb-TjD">
+                                <rect key="frame" x="285" y="637" width="90" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="90" id="FVv-TG-YGH"/>
+                                </constraints>
+                                <state key="normal" title="Identify"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="RAI-oc-7Ta" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="5XM-Ww-O0w"/>
-                            <constraint firstItem="RAI-oc-7Ta" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Syx-0y-nzQ"/>
-                            <constraint firstItem="RAI-oc-7Ta" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="c85-hI-qVS"/>
-                            <constraint firstItem="RAI-oc-7Ta" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="vHT-87-PUE"/>
+                            <constraint firstAttribute="trailing" secondItem="EJO-Gb-TjD" secondAttribute="trailing" id="GWR-sf-3f0"/>
+                            <constraint firstItem="yzo-IX-wzG" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="IKi-Nk-ZFK"/>
+                            <constraint firstItem="yzo-IX-wzG" firstAttribute="top" secondItem="RAI-oc-7Ta" secondAttribute="bottom" id="Rte-1m-U8R"/>
+                            <constraint firstItem="yzo-IX-wzG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Vbn-Um-aZP"/>
+                            <constraint firstItem="RAI-oc-7Ta" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Vlg-dm-GNb"/>
+                            <constraint firstItem="EJO-Gb-TjD" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Waw-Kw-GVO"/>
+                            <constraint firstItem="yzo-IX-wzG" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="XLG-Sm-3a8"/>
+                            <constraint firstItem="EJO-Gb-TjD" firstAttribute="top" secondItem="RAI-oc-7Ta" secondAttribute="bottom" id="c8F-i8-m56"/>
+                            <constraint firstItem="yzo-IX-wzG" firstAttribute="top" secondItem="RAI-oc-7Ta" secondAttribute="bottom" id="hgJ-Io-Rdr"/>
+                            <constraint firstItem="yzo-IX-wzG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="koC-CV-4cS"/>
+                            <constraint firstItem="RAI-oc-7Ta" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="n6x-1O-aXU"/>
+                            <constraint firstItem="yzo-IX-wzG" firstAttribute="top" secondItem="RAI-oc-7Ta" secondAttribute="bottom" id="vQe-tv-NyS"/>
+                            <constraint firstAttribute="trailing" secondItem="RAI-oc-7Ta" secondAttribute="trailing" id="wzw-d1-mKi"/>
+                            <constraint firstItem="EJO-Gb-TjD" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" symbolic="YES" id="xQn-y7-K1G"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
