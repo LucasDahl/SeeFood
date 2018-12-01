@@ -32,6 +32,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="pAc-RV-MlQ">
+                        <barButtonItem key="leftBarButtonItem" title="Photo Library" id="rjA-sg-ncj">
+                            <connections>
+                                <action selector="photoLibraryTapped:" destination="BYZ-38-t0r" id="apK-9Y-amV"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="camera" id="roE-A2-MAn">
                             <connections>
                                 <action selector="cameraTapped:" destination="BYZ-38-t0r" id="3uV-Ay-jiW"/>

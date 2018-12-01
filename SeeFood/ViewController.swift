@@ -17,18 +17,22 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     // Properties
     let imagePicker = UIImagePickerController()
+    let imageLibrary = UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Set the delegate for the imagePicker
+        // Set the delegate for the imagePicker's
         imagePicker.delegate = self
+        imageLibrary.delegate = self
         
         // Set allows type for the camera
         imagePicker.sourceType = .camera
+        imageLibrary.sourceType = .photoLibrary
         
         // Set if the user can edit the image
         imagePicker.allowsEditing = false
+        imageLibrary.allowsEditing = false
         
     }
     
@@ -110,11 +114,23 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
         
     }
+    
+    // This is for getting out of the photo library
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
 
     @IBAction func cameraTapped(_ sender: UIBarButtonItem) {
         
-        // Present the camera VC(image picker or camera)
+        // Present the camera (image picker or camera)
         present(imagePicker, animated: true, completion: nil)
+        
+    }
+    
+    @IBAction func photoLibraryTapped(_ sender: UIBarButtonItem) {
+        
+        // Present the photoLibrary
+        present(imageLibrary, animated: true, completion: nil)
         
     }
     
