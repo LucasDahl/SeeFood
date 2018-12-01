@@ -32,7 +32,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         // Set if the user can edit the image
         imagePicker.allowsEditing = false
-        imageLibrary.allowsEditing = false
+        imageLibrary.allowsEditing = true
         
     }
     
@@ -54,6 +54,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         // Dismiss the imagepicker
         imagePicker.dismiss(animated: true, completion: nil)
+        imageLibrary.dismiss(animated: true, completion: nil)
         
     }
     
@@ -114,11 +115,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
         
     }
-    
-    // This is for getting out of the photo library
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        picker.dismiss(animated: true, completion: nil)
-    }
 
     @IBAction func cameraTapped(_ sender: UIBarButtonItem) {
         
@@ -135,4 +131,5 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
 } // End class
+
 
