@@ -14,10 +14,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     // Outlets
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var identifyTextField: UITextField!
     
     // Properties
     let imagePicker = UIImagePickerController()
     let imageLibrary = UIImagePickerController()
+    var identifyItem = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +35,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         // Set if the user can edit the image
         imagePicker.allowsEditing = false
         imageLibrary.allowsEditing = true
+        
+        // Set the placeholder text for the textField
+        identifyTextField.placeholder = "Pick something to idemtify..."
         
     }
     
@@ -73,12 +78,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             if let firstResult = results.first {
                 
                 // Check if the first result is the desired object
-                if firstResult.identifier.contains("pizza") {
+                if firstResult.identifier.contains(self.identifyItem) {
                     
                     // Was the desired item
                     
                     // Set the navigationItem title to the desired item
-                    self.navigationItem.title = "PIZZA!!!!"
+                    self.navigationItem.title = "\(self.identifyItem)!!!!"
                     
                     
                     // Change the navigationBar tint color to red so the user clearly knows that the item is the desired item
@@ -89,7 +94,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                     // Was not the desired object
                     
                     // Set the navigationItem title to "Not desired item!"
-                    self.navigationItem.title = "NOT PIZZA!!!"
+                    self.navigationItem.title = "NOT \(self.identifyItem)!!!"
                     
                     // Change the mavigationBar tint color to red so the user knows clearly it is not the desired color.
                     self.navigationController?.navigationBar.barTintColor = .red
@@ -127,6 +132,21 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         // Present the photoLibrary
         present(imageLibrary, animated: true, completion: nil)
+        
+    }
+    
+    
+    @IBAction func identifyTapped(_ sender: UIButton) {
+        
+        // Set the identify item to the textField
+        if let newItem = identifyTextField {
+            
+            identifyItem = newItem.text!
+            
+        }
+        
+        // Set the textField back to nil, and clear it
+        identifyTextField.placeholder = "Pick something to idemtify..."
         
     }
     
