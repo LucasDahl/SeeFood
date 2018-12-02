@@ -39,6 +39,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         // Set the placeholder text for the textField
         identifyTextField.placeholder = "Pick something to idemtify..."
         
+        // This allows the textField and button to be pushed up when the keyboard is presented.
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -120,6 +124,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
         
     }
+    
+    //==================
+    // MARK: - IBActions
+    //==================
 
     @IBAction func cameraTapped(_ sender: UIBarButtonItem) {
         
@@ -146,8 +154,32 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
         
         // Set the textField back to nil, and clear it
+        identifyTextField.text = ""
         identifyTextField.placeholder = "Pick something to idemtify..."
         
+        // Dismiss the keyboard
+        identifyTextField.resignFirstResponder()
+        
+    }
+    
+    //=========================
+    // MARK: - Keyboard methods
+    //=========================
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0{
+                self.view.frame.origin.y -= keyboardSize.height
+            }
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y != 0{
+                self.view.frame.origin.y += keyboardSize.height
+            }
+        }
     }
     
 } // End class
